@@ -4,7 +4,7 @@ This repository is used for applying learning examples of Azure AI services thro
 
 ## Prerequisites
 
-- Azure subscription
+- Azure subscription (Azure Congnitive services)
 - .NET Framework
 - VSCode
 
@@ -17,15 +17,18 @@ This repository is used for applying learning examples of Azure AI services thro
 
 ## Running
 
-Before running the application, make sure you have 
+Before running the application, make sure you have:
+
 - Installed the Pre-requisites mentioned above.
 - Created the environment file `.env` under root folder based on the template file [.env.template](.env.template).
-- the environment file [http-client.env.json](e2e-test/http-client.env.json) under `e2e-test` folder is up to date.
+- Created the http environment file [http-client.env.json](testing/e2e-test/http-client.env.json) based on the template file [http-client.env.template.json](testing/e2e-test/http-client.env.template.json).
 
 To build the service source code and run unit-tests, use:
--  `make build`
+
+- `make build`
 
 To run the service in development mode, use:
+
 - `make run`
 
  The following is a list of make commands should be run from root folder.
@@ -33,11 +36,9 @@ To run the service in development mode, use:
 ```bash
 help                   💬 This help message :)
 build                  🔨 build the application and run unit-test 
-run                    🏃 Run the application
+run                    🏃 Run the API application
 e2e-init               🔨 Initialize e2e test environment by installing httpyac CLI
 e2e-local              💻 Run e2e-test on your local environment
-e2e-dev                💻 Run e2e-test on Backbase-msft-dev environment
+e2e-local              🏃 Run e2e-test on your local dev environment for the rest integration
+e2e-local-sdk          💻 Run e2e-test on your local dev environment for the sdk integration
 ```
-
-
-

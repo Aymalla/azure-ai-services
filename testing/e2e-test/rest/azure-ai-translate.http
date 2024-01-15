@@ -1,0 +1,27 @@
+# Cognitive Service for translation (REST API reference)
+# Documentation: https://learn.microsoft.com/en-us/azure/ai-services/translator/reference/v3-0-reference
+
+# @title Variables
+@AZURE_Translation_SERVICE_ENDPOINT={{AZURE_AI_SERVICE_ENDPOINT}}/translator/text/v3.0
+
+#########################################################
+## Translate Text
+#########################################################
+# @title Translate Text 
+POST {{AZURE_Translation_SERVICE_ENDPOINT}}/translate?to=ar&includeAlignment=true&includeSentenceLength=true&includeSentenceLength=true&toScript=Latn&profanityAction=Marked
+Content-Type: application/json
+Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}
+
+[
+  {
+    "text":"Hello world!"
+  }
+]
+
+#########################################################
+## Get Supported Languages
+#########################################################
+# @title Get Supported Languages
+GET {{AZURE_Translation_SERVICE_ENDPOINT}}/languages?scope=translation,transliteration,dictionary
+Content-Type: application/json
+Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}

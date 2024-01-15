@@ -1,0 +1,23 @@
+# Cognitive Service integration using SDK 
+# Documentation: https://learn.microsoft.com/en-us/azure/ai-services/translator/reference/v3-0-reference
+
+# @title Variables
+@API_Translation_URL= {{API_URL}}/translation
+
+#########################################################
+# @title Translate text
+POST {{API_Translation_URL}}/translate
+Content-Type: application/json
+
+{
+  "text": "Hello World, we need to make the world more peacefule",
+  "to": "de",
+  "from": "en"
+}
+
+#########################################################
+# @title Translate text
+POST {{API_Translation_URL}}/languages
+Content-Type: application/json
+
+

@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34408.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{68710E82-612B-4B6E-BE22-C81955EED631}"
+	ProjectSection(SolutionItems) = preProject
+		.env = .env
+		.env.template = .env.template
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CB323026-B810-4C3B-8236-280C5CE0C5C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "testing", "testing", "{BA00D762-52E6-4478-99BB-27308124A703}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AI.Integration", "src\AI.Integration\AI.Integration.csproj", "{9AC9C045-28DF-42D0-89A9-81D6095F79D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".devcontainer", ".devcontainer", "{C3022D94-801A-444C-AC21-6F6B8DAD4072}"
+	ProjectSection(SolutionItems) = preProject
+		.devcontainer\devcontainer.json = .devcontainer\devcontainer.json
+		.devcontainer\Dockerfile = .devcontainer\Dockerfile
+		.devcontainer\postCreateCommand.sh = .devcontainer\postCreateCommand.sh
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AI.Integration.APIs", "src\AI.Integration.APIs\AI.Integration.APIs.csproj", "{2FE01CC7-3B0A-4A9B-B934-AACEC3A3580B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "e2e", "e2e", "{F51653E4-8412-4C84-AAF1-B370D46EF3B8}"
+	ProjectSection(SolutionItems) = preProject
+		testing\e2e\azure-text-analytics-rest.http = testing\e2e\azure-text-analytics-rest.http
+		testing\e2e\azure-text-analytics-sdk.http = testing\e2e\azure-text-analytics-sdk.http
+		testing\e2e\http-client.env.json = testing\e2e\http-client.env.json
+		testing\e2e\http-client.env.template.json = testing\e2e\http-client.env.template.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9AC9C045-28DF-42D0-89A9-81D6095F79D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AC9C045-28DF-42D0-89A9-81D6095F79D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AC9C045-28DF-42D0-89A9-81D6095F79D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AC9C045-28DF-42D0-89A9-81D6095F79D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FE01CC7-3B0A-4A9B-B934-AACEC3A3580B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FE01CC7-3B0A-4A9B-B934-AACEC3A3580B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FE01CC7-3B0A-4A9B-B934-AACEC3A3580B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FE01CC7-3B0A-4A9B-B934-AACEC3A3580B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9AC9C045-28DF-42D0-89A9-81D6095F79D9} = {CB323026-B810-4C3B-8236-280C5CE0C5C6}
+		{2FE01CC7-3B0A-4A9B-B934-AACEC3A3580B} = {CB323026-B810-4C3B-8236-280C5CE0C5C6}
+		{F51653E4-8412-4C84-AAF1-B370D46EF3B8} = {BA00D762-52E6-4478-99BB-27308124A703}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {245539B2-E0A0-4247-A4C7-11BA797776BF}
+	EndGlobalSection
+EndGlobal

@@ -19,12 +19,17 @@ help: ## 💬 This help message :)
 
 build: ## 🔨 build the application 
 	@echo -e "----\e[34mStart $@\e[0m----" || true
-	@cd src/AI.Integration.APIs && dotnet clean && dotnet build 
+	@cd src/AI.Integration.APIs && dotnet build 
 	@echo -e "----\e[34mCompleted\e[0m----"
 
 run: ## 🏃 Run the application
 	@echo -e "----\e[34mStart $@\e[0m----" || true
 	@cd src/AI.Integration.APIs && dotnet run 
+	@echo -e "----\e[34mCompleted\e[0m----"
+
+run-watch: ## 🏃 Run the application with hot reload enabled
+	@echo -e "----\e[34mStart $@\e[0m----" || true
+	@cd src/AI.Integration.APIs && dotnet watch 
 	@echo -e "----\e[34mCompleted\e[0m----"
 
 clean: ## 🏃 clean the application build files
@@ -37,18 +42,18 @@ e2e-init:## 🏃 Initialize e2e test environment by installing httpyac CLI
 	@npm install -g httpyac
 	@echo -e "----\e[34mCompleted\e[0m----"
 
-e2e-local:## 🏃 Run e2e-test on your local dev environment
+e2e:## 🏃 Run e2e-test on your local dev environment
 	@echo -e "----\e[34mStart $@\e[0m----" || true
 	@echo "Please run make run in a separate terminal to start the application"
 	@httpyac testing/e2e-test/*/*.http --all -e local -o response
 	@echo -e "----\e[34mCompleted\e[0m----"
 
-e2e-local-rest:## 🏃 Run e2e-test on your local dev environment for the rest integration
+e2e-rest:## 🏃 Run e2e-test on your local dev environment for the rest integration
 	@echo -e "----\e[34mStart $@\e[0m----" || true
 	@httpyac testing/e2e-test/rest/*.http --all -e local -o response
 	@echo -e "----\e[34mCompleted\e[0m----"
 
-e2e-local-sdk:## 🏃 Run e2e-test on your local dev environment for the sdk integration
+e2e-sdk:## 🏃 Run e2e-test on your local dev environment for the sdk integration
 	@echo -e "----\e[34mStart $@\e[0m----" || true
 	@echo "Please run make run in a separate terminal to start the application"
 	@httpyac testing/e2e-test/sdk/*.http --all -e local -o response

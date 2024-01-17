@@ -3,7 +3,7 @@
 
 # @title Variables
 @API_VERSION=2023-04-01
-@TEXT_ANALYTICS_ENDPOINT={{AZURE_AI_SERVICE_ENDPOINT}}/language/:analyze-text?api-version={{API_VERSION}}
+@TEXT_ANALYTICS_ENDPOINT={{AZURE_LANG_SERVICE_ENDPOINT}}/language/:analyze-text?api-version={{API_VERSION}}
 
 
 #########################################################
@@ -12,7 +12,7 @@
 # @title Language Detection Request
 POST {{TEXT_ANALYTICS_ENDPOINT}}
 Content-Type: application/json
-Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}
+Ocp-Apim-Subscription-Key:{{AZURE_LANG_SERVICE_KEY}}
 
 {
   "kind": "LanguageDetection",
@@ -44,7 +44,7 @@ Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}
 # @title Sentiment Analysis Request
 POST {{TEXT_ANALYTICS_ENDPOINT}}
 Content-Type: application/json
-Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}
+Ocp-Apim-Subscription-Key:{{AZURE_LANG_SERVICE_KEY}}
 
 {
   "kind": "SentimentAnalysis",
@@ -69,7 +69,7 @@ Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}
 # @title Key Phrase Extraction Request
 POST {{TEXT_ANALYTICS_ENDPOINT}}
 Content-Type: application/json
-Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}
+Ocp-Apim-Subscription-Key:{{AZURE_LANG_SERVICE_KEY}}
 
 {
   "kind": "KeyPhraseExtraction",
@@ -104,7 +104,7 @@ Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}
 # @title Entity Linking Request
 POST {{TEXT_ANALYTICS_ENDPOINT}}
 Content-Type: application/json
-Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}
+Ocp-Apim-Subscription-Key:{{AZURE_LANG_SERVICE_KEY}}
 
 {
   "kind": "EntityLinking",
@@ -134,7 +134,7 @@ Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}
 # @title Entity Recognition Request
 POST {{TEXT_ANALYTICS_ENDPOINT}}
 Content-Type: application/json
-Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}
+Ocp-Apim-Subscription-Key:{{AZURE_LANG_SERVICE_KEY}}
 
 {
   "kind": "EntityRecognition",
@@ -164,7 +164,7 @@ Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}
 # @title PII Entity Recognition Request
 POST {{TEXT_ANALYTICS_ENDPOINT}}
 Content-Type: application/json
-Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}
+Ocp-Apim-Subscription-Key:{{AZURE_LANG_SERVICE_KEY}}
 
 {
   "kind": "PiiEntityRecognition",
@@ -189,5 +189,72 @@ Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}
         "text": "Is 998.214.865-68 your Brazilian CPF number?"
       }
     ]
+  }
+}
+
+#########################################################
+## Question Answering Request
+#########################################################
+
+## Custom question answering Project and deployment names created in the language portal: https://language.cognitive.azure.com/
+@projectName=FAQ
+@deploymentName=production
+@KNOWLEDGEBASES_ENDPOINT={{AZURE_LANG_SERVICE_ENDPOINT}}/language/:query-knowledgebases?projectName={{projectName}}&api-version=2023-04-01&deploymentName={{deploymentName}}
+
+# @title Question Answering Request
+POST {{KNOWLEDGEBASES_ENDPOINT}}
+Content-Type: application/json
+Ocp-Apim-Subscription-Key:{{AZURE_LANG_SERVICE_KEY}}
+
+{
+  "question": "What is Microsoft Certification?",
+  "top": 3,
+  "userId": "sd53lsY=",
+  "confidenceScoreThreshold": 0.2,
+  "context": {
+    "previousQnaId": 9,
+    "previousUserQuery": "Where are QnA Maker quickstarts?"
+  },
+  "rankerType": "Default",
+  "answerSpanRequest": {
+    "enable": true,
+    "confidenceScoreThreshold": 0.2,
+    "topAnswersWithSpan": 1
+  },
+  "includeUnstructuredSources": true
+}
+
+
+#########################################################
+## Conversational language understanding Request
+#########################################################
+
+## Conversational language understanding Project and deployment names created in the language portal: https://language.cognitive.azure.com/
+@conversational_projectName=Clock
+@conversational_deploymentName=production
+@KNOWLEDGEBASES_ENDPOINT={{AZURE_LANG_SERVICE_ENDPOINT}}/language/:analyze-conversations?api-version={{API_VERSION}}
+
+# @title Question Answering Request
+POST {{KNOWLEDGEBASES_ENDPOINT}}
+Content-Type: application/json
+Ocp-Apim-Subscription-Key:{{AZURE_LANG_SERVICE_KEY}}
+
+{
+  "kind": "Conversation",
+  "analysisInput": {
+    "conversationItem": {
+      "participantId": "1",
+      "id": "1",
+      "modality": "text",
+      "language": "en-GB",
+      "text": "What is the time in London"
+    }
+  },
+  "parameters": {
+    "projectName": "{{conversational_projectName}}",
+    "deploymentName": "{{conversational_deploymentName}}",
+    "verbose": true,
+    "isLoggingEnabled": false,
+    "stringIndexType": "TextElement_V8"
   }
 }

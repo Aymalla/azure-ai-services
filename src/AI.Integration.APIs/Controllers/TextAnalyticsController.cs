@@ -9,9 +9,9 @@ namespace AI.Integration.APIs.Controllers
     public class TextAnalyticsController : ControllerBase
     {
         private readonly ILogger<TextAnalyticsController> _logger;
-        private readonly ILanguageService _textAnalyticsService;
+        private readonly LanguageService _textAnalyticsService;
 
-        public TextAnalyticsController(ILanguageService languageService, ILogger<TextAnalyticsController> logger)
+        public TextAnalyticsController(LanguageService languageService, ILogger<TextAnalyticsController> logger)
         {
             _logger = logger;
             _textAnalyticsService = languageService;

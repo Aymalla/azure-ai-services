@@ -7,7 +7,7 @@ namespace AI.Integration
     /// This is a wrapper around the Azure Cognitive Services Text Analytics client.
     /// Samples: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples/README.md
     /// </summary>
-    public class LanguageService : ILanguageService
+    public class LanguageService
     {
         private readonly TextAnalyticsClient _textAnalyticsClient;
 

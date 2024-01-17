@@ -13,5 +13,16 @@ curl -sS https://webinstall.dev/k9s | bash
 # Install httpyac CLI for API testing
 npm install -g httpyac
 
+# Inatall Microsoft speech dependencies
+wget -O - https://www.openssl.org/source/openssl-1.1.1u.tar.gz | tar zxf -
+cd openssl-1.1.1u
+./config --prefix=/usr/local
+make -j $(nproc)
+sudo make install_sw install_ssldirs
+sudo ldconfig -v
+export SSL_CERT_DIR=/etc/ssl/certs
+sudo apt-get update
+sudo apt-get -y install libssl-dev libasound2
+
 echo "----------------------------------------------"
 dotnet --version

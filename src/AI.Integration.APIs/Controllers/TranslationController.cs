@@ -8,9 +8,9 @@ namespace AI.Integration.APIs.Controllers
     public class TranslationController : ControllerBase
     {
         private readonly ILogger<TextAnalyticsController> _logger;
-        private readonly ITranslationService _translationService;
+        private readonly TranslationService _translationService;
 
-        public TranslationController(ITranslationService translationService, ILogger<TextAnalyticsController> logger)
+        public TranslationController(TranslationService translationService, ILogger<TextAnalyticsController> logger)
         {
             _logger = logger;
             _translationService = translationService;

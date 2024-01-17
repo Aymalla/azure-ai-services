@@ -4,9 +4,11 @@ This repository is used for applying learning examples of Azure AI services thro
 
 ## Prerequisites
 
-- Azure subscription (Azure Congnitive services)
+- Azure AI service resource
+- Azure Language resource
 - .NET Framework
 - VSCode
+- [Speech SDK](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/quickstarts/setup-platform?tabs=linux%2Cubuntu%2Cdotnetcli%2Cdotnet%2Cjre%2Cmaven%2Cnodejs%2Cmac%2Cpypi&pivots=programming-language-csharp)
 
 > **Note:** If you are using dev-container, you don't need to install any of the above. Just open the project in VSCode and it will install all the required tools for you.
 
@@ -38,7 +40,7 @@ help                   💬 This help message :)
 build                  🔨 build the application and run unit-test 
 run                    🏃 Run the API application
 e2e-init               🔨 Initialize e2e test environment by installing httpyac CLI
-e2e-local              💻 Run e2e-test on your local environment
-e2e-local              🏃 Run e2e-test on your local dev environment for the rest integration
-e2e-local-sdk          💻 Run e2e-test on your local dev environment for the sdk integration
+e2e                    💻 Run e2e-test for both rest and sdk integration
+e2e-rest               🏃 Run e2e-test for the rest integration
+e2e-sdk                💻 Run e2e-test for the sdk integration
 ```

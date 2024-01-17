@@ -7,7 +7,7 @@ namespace AI.Integration
     /// This is a wrapper around the Azure Cognitive Services Text Translation client.
     /// Samples: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation/Azure.AI.Translation.Text/samples
     /// </summary>
-    public class TranslationService : ITranslationService
+    public class TranslationService
     {
         private readonly TextTranslationClient _textTranslationClient;
 

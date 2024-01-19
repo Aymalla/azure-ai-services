@@ -24,5 +24,27 @@ export SSL_CERT_DIR=/etc/ssl/certs
 sudo apt-get update
 sudo apt-get -y install libssl-dev libasound2
 
+# Install the Vision SDK package
+# using Vision SDK on Ubuntu 22.04 LTS: https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/docs/ubuntu2204-notes.md
+# https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/cpp/image-analysis/README-Linux.md
+wget -O - https://www.openssl.org/source/openssl-1.1.1u.tar.gz | tar zxf -
+cd openssl-1.1.1u
+./config --prefix=/usr/local
+make -j $(nproc)
+sudo make install_sw install_ssldirs
+sudo ldconfig -v
+export SSL_CERT_DIR=/etc/ssl/certs
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
+sudo apt-get update
+sudo apt-get install -y build-essential libssl-dev wget
+
+sudo apt install wget dpkg
+wget "https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb"
+sudo dpkg -i packages-microsoft-prod.deb 
+
+sudo apt update
+sudo apt install -y azure-ai-vision-dev-image-analysis
+
 echo "----------------------------------------------"
 dotnet --version

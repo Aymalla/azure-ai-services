@@ -14,8 +14,8 @@ This repository is used for applying learning examples of Azure AI services thro
 
 ## Documentation
 
-- 
-- 
+- [Azure Cognitive Services SDK for .NET](https://learn.microsoft.com/en-us/dotnet/api/overview/azure/cognitive-services?view=azure-dotnet-preview)
+- [Azure Cognitive APIs Developer Playground](https://westus2.dev.cognitive.microsoft.com/docs/services)
 
 ## Running
 

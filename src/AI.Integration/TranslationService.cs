@@ -11,9 +11,11 @@ namespace AI.Integration
     {
         private readonly TextTranslationClient _textTranslationClient;
 
-        public TranslationService(TextTranslationClient textTranslationClient)
+        public TranslationService(Settings settings)
         {
-            _textTranslationClient = textTranslationClient;
+            _textTranslationClient = new TextTranslationClient(
+                new AzureKeyCredential(settings.AZURE_AI_SERVICE_KEY),
+                new Uri(settings.AZURE_AI_SERVICE_ENDPOINT));
         }
 
         public async Task<IReadOnlyList<TranslatedTextItem>> TranslateAsync(string? targetLanguage, string? text, string? sourceLanguage = null, string? fromScript= null, string toScript = "Latn")

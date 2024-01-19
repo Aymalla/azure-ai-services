@@ -1,0 +1,14 @@
+# Cognitive Service integration using SDK 
+# Documentation: https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40
+
+# @title Variables
+@API_VISION_URL= {{API_URL}}/vision
+
+#########################################################
+# @title Translate text
+POST {{API_VISION_URL}}/analyze?imageurl=https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/media/quickstarts/presentation.png
+Content-Type: application/json
+
+
+
+

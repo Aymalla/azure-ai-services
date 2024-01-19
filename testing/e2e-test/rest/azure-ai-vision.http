@@ -1,0 +1,102 @@
+# Cognitive Service for Computer Vision (REST API reference)
+# Documentation: https://learn.microsoft.com/en-us/rest/api/computervision/operation-groups?view=rest-computervision-v3.1
+
+# @title Variables
+@COMPUTER_VISION_ENDPOINT={{AZURE_AI_SERVICE_ENDPOINT}}/vision/v3.1/
+
+
+#########################################################
+## Image Analysis Request
+#########################################################
+# @title Analyze Request
+POST {{COMPUTER_VISION_ENDPOINT}}/analyze?visualFeatures=Categories,Tags,Description,Faces,Color,ImageType,Objects,Brands
+Content-Type: application/json
+Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}
+
+{
+  "url": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/images/house_yard.png"
+}
+
+#########################################################
+## Describe Image
+#########################################################
+# @title Analyze Request
+POST {{COMPUTER_VISION_ENDPOINT}}/describe
+Content-Type: application/json
+Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}
+
+{
+  "url": "	https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/images/house_yard.png"
+}
+
+#########################################################
+## Tag Image Request
+#########################################################
+# @title Tag Image Request
+POST {{COMPUTER_VISION_ENDPOINT}}/tag
+Content-Type: application/json
+Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}
+
+{
+  "url": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/images/house_yard.png"
+}
+
+#########################################################
+## Create Thumbnail
+#########################################################
+# @title Create Thumbnail
+POST {{COMPUTER_VISION_ENDPOINT}}/generateThumbnail?width=100&height=100&smartCropping=true
+Content-Type: application/json
+Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}
+
+{
+  "url": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/images/house_yard.png"
+}
+
+#########################################################
+## Detect Faces
+#########################################################
+
+# @title Detect Faces
+POST {{COMPUTER_VISION_ENDPOINT}}/analyze?visualFeatures=Faces,Description
+Content-Type: application/json
+Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}
+
+{
+  "url": "https://i.stack.imgur.com/bfZUt.jpg"
+}
+
+#########################################################
+## Extract Text from Image
+#########################################################
+# @title Extract Text from Image
+# @name analyzeRequest
+POST {{COMPUTER_VISION_ENDPOINT}}/read/analyze
+Content-Type: application/json
+Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}
+
+{
+  "url": "https://i.stack.imgur.com/WiDpa.jpg"
+}
+
+{{
+  test.status(202);
+  exports.requestId = response.headers["apim-request-id"];
+  console.info(response.headers["apim-request-id"]);
+}}
+
+#########################################################
+## Get Text Operation Result
+#########################################################
+# @name analyzeResults
+# @ref analyzeRequest
+# @sleep 5000
+GET {{COMPUTER_VISION_ENDPOINT}}read/analyzeResults/{{requestId}}
+Content-Type: application/json
+Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}
+
+
+
+
+
+

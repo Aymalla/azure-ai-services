@@ -14,10 +14,16 @@ namespace AI.Integration
         //private readonly TextTranslationClient _textTranslationClient;
         private readonly SpeechTranslationConfig _speechTranslationConfig;
 
-        public SpeechService(SpeechTranslationConfig speechTranslationConfig)
+        public SpeechService(Settings settings)
         {
-            _speechTranslationConfig = speechTranslationConfig;
-            // _textTranslationClient = textTranslationClient;
+            // Creates an instance of a speech translation config with specified subscription key and service region.
+            // Please replace the service subscription key with your subscription key
+            //var v2EndpointInString = String.Format("wss://{0}.stt.speech.microsoft.com/speech/universal/v2", AZURE_AI_SERVICE_REGION);
+            //var v2EndpointUrl = new Uri(v2EndpointInString);
+            //return SpeechTranslationConfig.FromEndpoint(v2EndpointUrl, AZURE_AI_SERVICE_KEY);
+
+            _speechTranslationConfig = SpeechTranslationConfig.FromSubscription(settings.AZURE_AI_SERVICE_KEY, settings.AZURE_AI_SERVICE_REGION);
+            _speechTranslationConfig.SetProperty("OPENSSL_DISABLE_CRL_CHECK", "true");
         }
 
         public async Task<TranslationRecognitionResult> TranslateAsync(string wavFilePath)
@@ -44,7 +50,7 @@ namespace AI.Integration
 
             // Define the set of languages to detect
             var autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.FromLanguages(new string[] { "en-US", "zh-CN" });
-            
+
             // Creates a translation recognizer using file as audio input.
             // Replace with your own audio file name.
             using var audioInput = AudioConfig.FromWavFileInput(wavFilePath);

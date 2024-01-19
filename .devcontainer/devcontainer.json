@@ -61,7 +61,8 @@
 				"bierner.markdown-mermaid",
 				"anweber.vscode-httpyac",
 				"k6.k6",
-				"davidanson.vscode-markdownlint"
+				"davidanson.vscode-markdownlint",
+				"jmrog.vscode-nuget-package-manager"
 			]
 		}
 	},

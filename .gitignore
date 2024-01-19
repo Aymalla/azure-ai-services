@@ -510,3 +510,5 @@ $RECYCLE.BIN/
 
 # 
 openssl-*
+
+*.deb

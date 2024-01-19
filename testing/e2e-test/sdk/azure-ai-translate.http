@@ -17,7 +17,7 @@ Content-Type: application/json
 
 #########################################################
 # @title Translate text
-POST {{API_Translation_URL}}/languages
+GET {{API_Translation_URL}}/languages?scope=translation,transliteration,dictionary
 Content-Type: application/json
 
 

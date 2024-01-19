@@ -11,9 +11,11 @@ namespace AI.Integration
     {
         private readonly TextAnalyticsClient _textAnalyticsClient;
 
-        public LanguageService(TextAnalyticsClient textAnalyticsClient)
+        public LanguageService(Settings settings)
         {
-            _textAnalyticsClient = textAnalyticsClient;
+            _textAnalyticsClient = new TextAnalyticsClient(
+                new Uri(settings.AZURE_LANG_SERVICE_ENDPOINT),
+                new AzureKeyCredential(settings.AZURE_LANG_SERVICE_KEY));
         }
 
         public async Task<DetectLanguageResultCollection> DetectLanguageBatchAsync(IEnumerable<DetectLanguageInput> documents)

@@ -1,0 +1,17 @@
+# Cognitive Service for Speech (REST API reference)
+# Documentation: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/rest-speech-to-text-short
+
+# @title Variables
+@SPEECH_API_ENDPOINT=https://{{AZURE_AI_SERVICE_REGION}}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
+
+#########################################################
+## Transform Speech to Text
+#########################################################
+# @title Transform Speech to Text
+# @name transcriptions
+POST {{SPEECH_API_ENDPOINT}}?language=en-US
+Content-Type: application/json
+Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}
+Content-Type: audio/wav
+
+< ../../../data-samples/speech/sample_1.wav

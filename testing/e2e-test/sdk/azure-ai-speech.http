@@ -1,0 +1,33 @@
+# Cognitive Service - speech integration using SDK 
+# Documentation: https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40
+
+# @title Variables
+@API_VISION_URL= {{API_URL}}/speech
+
+#########################################################
+## Translate Speech
+#########################################################
+# @title Translate Speech
+POST {{API_VISION_URL}}/translate
+Content-Type: multipart/form-data; boundary=WebKitFormBoundary
+
+--WebKitFormBoundary
+Content-Disposition: form-data; name="formFile"; filename="sample_1.wav"
+
+< ../../../data-samples/speech/sample_1.wav
+--WebKitFormBoundary--
+
+#########################################################
+# @title Transform Speech to Text
+POST {{API_VISION_URL}}/recognize
+Content-Type: multipart/form-data; boundary=WebKitFormBoundary
+
+--WebKitFormBoundary
+Content-Disposition: form-data; name="formFile"; filename="sample_1.wav"
+
+< ../../../data-samples/speech/sample_1.wav
+--WebKitFormBoundary--
+
+
+
+

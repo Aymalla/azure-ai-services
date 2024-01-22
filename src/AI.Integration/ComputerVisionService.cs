@@ -1,7 +1,4 @@
 ﻿using Azure;
-using Microsoft.CognitiveServices.Speech;
-using Microsoft.CognitiveServices.Speech.Audio;
-using Microsoft.CognitiveServices.Speech.Translation;
 using Azure.AI.Vision.Common;
 using Azure.AI.Vision.ImageAnalysis;
 
@@ -27,28 +24,13 @@ namespace AI.Integration
             using var imageSource = VisionSource.FromUrl(new Uri(imageUrl));
             var analysisOptions = new ImageAnalysisOptions()
             {
-                Features = ImageAnalysisFeature.Caption | ImageAnalysisFeature.Text,
+                Features = ImageAnalysisFeature.Tags | ImageAnalysisFeature.Text | ImageAnalysisFeature.Objects,
                 Language = "en",
                 GenderNeutralCaption = true
             };
 
             using var analyzer = new ImageAnalyzer(_visionServiceOptions, imageSource, analysisOptions);
             var result = await analyzer.AnalyzeAsync().ConfigureAwait(false);
-            return result;
-        }
-
-        public async Task<ImageAnalysisResult> AnalyzeAsync(string imageUrl)
-        {
-            using var imageSource = VisionSource.FromUrl(new Uri(imageUrl));
-            var analysisOptions = new ImageAnalysisOptions()
-            {
-                Features = ImageAnalysisFeature.Caption | ImageAnalysisFeature.Text,
-                Language = "en",
-                GenderNeutralCaption = true
-            };
-
-            using var analyzer = new ImageAnalyzer(_visionServiceOptions, imageSource, analysisOptions);
-            var result = await analyzer.C().ConfigureAwait(false);
             return result;
         }
     }

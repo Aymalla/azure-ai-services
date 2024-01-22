@@ -5,8 +5,6 @@
 @API_TextAnalytics_URL= {{API_URL}}/textAnalytics
 
 #########################################################
-## Language Detection Request
-#########################################################
 # @title Language Detection Request
 POST {{API_TextAnalytics_URL}}/detectLanguage
 Content-Type: application/json
@@ -31,8 +29,6 @@ Content-Type: application/json
  ]
 
 #########################################################
-## Sentiment Analysis Request
-#########################################################
 # @title  Sentiment Analysis Request
 POST {{API_TextAnalytics_URL}}/analyzeSentiment
 Content-Type: application/json
@@ -45,8 +41,6 @@ Content-Type: application/json
       }
 ]
 
-#########################################################
-## Key Phrase Extraction Request
 #########################################################
 # @title  Key Phrase Extraction Request
 POST {{API_TextAnalytics_URL}}/extractKeyPhrases
@@ -71,8 +65,6 @@ Content-Type: application/json
 ]
 
 #########################################################
-## Entity Recognition Request
-#########################################################
 # @title  Entity Recognition Request
 POST {{API_TextAnalytics_URL}}/recognizeEntities
 Content-Type: application/json
@@ -91,9 +83,7 @@ Content-Type: application/json
 ]
 
 #########################################################
-## Entity Linking Request
-#########################################################
-# @title  Entity Linking Request
+# @title  Entity Linked Entities Request
 POST {{API_TextAnalytics_URL}}/recognizeLinkedEntities
 Content-Type: application/json
 
@@ -110,8 +100,6 @@ Content-Type: application/json
       }
 ]
 
-#########################################################
-## PII Entity Recognition Request
 #########################################################
 # @title  PII Entity Recognition Request
 POST {{API_TextAnalytics_URL}}/recognizePiiEntities
@@ -135,5 +123,4 @@ Content-Type: application/json
     }
 ]
 
-#########################################################
  

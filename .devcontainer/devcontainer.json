@@ -10,7 +10,7 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 		"context": ".",
-		"args": { "VARIANT": "ubuntu" }
+		"args": { "VARIANT": "ubuntu20.04" }
 	},
 
 	 // An array of Docker CLI arguments that should be used when running the container

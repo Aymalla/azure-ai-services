@@ -511,4 +511,6 @@ $RECYCLE.BIN/
 # 
 openssl-*
 
+# debian packages
 *.deb
+*.deb.*

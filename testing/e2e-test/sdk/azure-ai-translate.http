@@ -16,7 +16,7 @@ Content-Type: application/json
 }
 
 #########################################################
-# @title Translate text
+# @title Get available Languages for translation, transliteration, dictionary
 GET {{API_Translation_URL}}/languages?scope=translation,transliteration,dictionary
 Content-Type: application/json
 

@@ -45,16 +45,16 @@ e2e-init:## 🏃 Initialize e2e test environment by installing httpyac CLI
 e2e:## 🏃 Run e2e-test on your local dev environment
 	@echo -e "----\e[34mStart $@\e[0m----" || true
 	@echo "Please run make run in a separate terminal to start the application"
-	@httpyac testing/e2e-test/*/*.http --all -e local -o response
+	@httpyac testing/e2e-test/*/*.http --all -e local
 	@echo -e "----\e[34mCompleted\e[0m----"
 
 e2e-rest:## 🏃 Run e2e-test on your local dev environment for the rest integration
 	@echo -e "----\e[34mStart $@\e[0m----" || true
-	@httpyac testing/e2e-test/rest/*.http --all -e local -o response
+	@httpyac testing/e2e-test/rest/*.http --all -e local
 	@echo -e "----\e[34mCompleted\e[0m----"
 
 e2e-sdk:## 🏃 Run e2e-test on your local dev environment for the sdk integration
 	@echo -e "----\e[34mStart $@\e[0m----" || true
 	@echo "Please run make run in a separate terminal to start the application"
-	@httpyac testing/e2e-test/sdk/*.http --all -e local -o response
+	@httpyac testing/e2e-test/sdk/*.http --all -e local
 	@echo -e "----\e[34mCompleted\e[0m----"

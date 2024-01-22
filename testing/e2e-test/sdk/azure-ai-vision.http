@@ -5,10 +5,9 @@
 @API_VISION_URL= {{API_URL}}/vision
 
 #########################################################
-# @title Translate text
-POST {{API_VISION_URL}}/analyze?imageurl=https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/media/quickstarts/presentation.png
+# @title Analyze an image to get features: Text, Objects, Tags
+POST {{API_VISION_URL}}/analyze?imageurl=https://i.stack.imgur.com/WiDpa.jpg
 Content-Type: application/json
-
 
 
 

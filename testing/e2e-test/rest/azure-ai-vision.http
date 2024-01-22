@@ -20,7 +20,7 @@ Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}
 #########################################################
 ## Describe Image
 #########################################################
-# @title Analyze Request
+# @title Describe Request
 POST {{COMPUTER_VISION_ENDPOINT}}/describe
 Content-Type: application/json
 Ocp-Apim-Subscription-Key:{{AZURE_AI_SERVICE_KEY}}

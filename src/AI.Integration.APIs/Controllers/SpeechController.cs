@@ -1,8 +1,5 @@
 using AI.Integration.APIs.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CognitiveServices.Speech;
-using System.IO;
-using System.Text;
 
 namespace AI.Integration.APIs.Controllers
 {
@@ -31,19 +28,20 @@ namespace AI.Integration.APIs.Controllers
 
             var result = await _speechService.TranslateAsync(filePath);
             System.IO.File.Delete(filePath);
+            return ApiResult.OK(result);
+        }
 
-            var sb = new StringBuilder();
-            if (result.Reason == ResultReason.Canceled)
+        [HttpPost("recognize")]
+        public async Task<ApiResult> RecognizeSpeech(IFormFile formFile)
+        {
+            var filePath = Path.GetTempFileName() + ".wav";
+            using (var stream = System.IO.File.Create(filePath))
             {
-                var cancellation = CancellationDetails.FromResult(result);
-                if (cancellation.Reason == CancellationReason.Error)
-                {
-                    sb.AppendLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
-                    sb.AppendLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
-                    sb.AppendLine($"CANCELED: Did you update the subscription info?");
-                }
+                await formFile.CopyToAsync(stream);
             }
 
+            var result = await _speechService.RecognizeSpeechAsync(filePath);
+            System.IO.File.Delete(filePath);
             return ApiResult.OK(result);
         }
     }

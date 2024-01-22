@@ -8,7 +8,8 @@ This repository is used for applying learning examples of Azure AI services thro
 - Azure Language resource
 - .NET Framework
 - VSCode
-- [Speech SDK](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/quickstarts/setup-platform?tabs=linux%2Cubuntu%2Cdotnetcli%2Cdotnet%2Cjre%2Cmaven%2Cnodejs%2Cmac%2Cpypi&pivots=programming-language-csharp)
+- [MS Speech SDK](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/quickstarts/setup-platform?tabs=linux%2Cubuntu%2Cdotnetcli%2Cdotnet%2Cjre%2Cmaven%2Cnodejs%2Cmac%2Cpypi&pivots=programming-language-csharp)
+- [MS Vision SDK](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/sdk/install-sdk?pivots=programming-language-csharp)
 
 > **Note:** If you are using dev-container, you don't need to install any of the above. Just open the project in VSCode and it will install all the required tools for you.
 

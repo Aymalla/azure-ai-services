@@ -60,7 +60,6 @@
 				"eamodio.gitlens",
 				"bierner.markdown-mermaid",
 				"anweber.vscode-httpyac",
-				"k6.k6",
 				"davidanson.vscode-markdownlint",
 				"jmrog.vscode-nuget-package-manager"
 			]

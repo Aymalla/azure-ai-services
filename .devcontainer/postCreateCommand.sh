@@ -3,7 +3,7 @@
 # Install httpyac CLI for API testing
 npm install -g httpyac
 
-# Inatall Microsoft speech dependencies
+# Microsoft speech SDK Installation
 sudo apt-get update
 sudo apt-get install -y build-essential libssl-dev ca-certificates libasound2 wget
 
